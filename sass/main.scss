@@ -1,8 +1,32 @@
+@import './variables';
+
 .container {
 	height: 100vh;
 	overflow: auto;
 	background-color: rebeccapurple;
 	background-image: url('../assets/painted_background.webp');
-
-	// background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+.inner_container {
+	width: 90vh;
+	height: 200px;
+	background-color: rebeccapurple;
+	margin: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+.counter_box_container {
+	width: $box-width;
+	height: $box-heigth;
+	background-color: red;
+	margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 20px;
+    font-size: 30px;
 }
