@@ -1,0 +1,7 @@
+.container {
+  height: 100vh;
+  overflow: auto;
+  background-color: rebeccapurple;
+  background-image: url("../assets/painted_background.webp");
+}
+/*# sourceMappingURL=main.css.map */
