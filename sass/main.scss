@@ -1,32 +1,31 @@
 @import './variables';
+@import './vendor';
 
-.container {
-	height: 100vh;
-	overflow: auto;
-	background-color: rebeccapurple;
-	background-image: url('../assets/painted_background.webp');
-	display: flex;
-	justify-content: center;
-	align-content: center;
+* {
+	box-sizing: border-box;
 }
-.inner_container {
-	width: 90vh;
-	height: 200px;
-	background-color: rebeccapurple;
-	margin: 50px;
+body {
+	background-image: url('../assets/bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	margin: 0px;
+	font-family: 'Poppins', sans-serif;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+
+}
+.count-down-container{
+	display: flex;
+	justify-content: space-evenly;
 	align-items: center;
-	flex-direction: row;
 }
-.counter_box_container {
-	width: $box-width;
-	height: $box-heigth;
-	background-color: red;
-	margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 20px;
-    font-size: 30px;
+.large_text{
+	font-size: 4.5rem;
+	font-weight: bold;
+	line-height: 20px;
+}
+.heading{
+	font-size: 2.5rem;
 }
