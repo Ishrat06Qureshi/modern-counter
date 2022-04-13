@@ -1,19 +1,32 @@
-const counterBoxes = document.querySelectorAll('.counter_box_container');
-const todayDate = (TODAY_DATE = new Date());
-const auctionDate = (AUCTION_DATE = new Date('19 april, 2022'));
+const AUCTION_DATE = new Date('14 april, 2022');
+const MILLI_SECONDS_IN_DAY = 1000 * 60 * 60 * 24; //86400000
+const MILLI_SECONDS_IN_AN_HOUR = 1000 * 60 * 60; //3600000
+const MILLI_SECONDS_IN_A_MINUTE = 1000 * 60; //60000
+const MILLI_SECONDS_IN_A_SECOND = 1000;
+const INTERVAL = 1000; // miliseconds in one seconds
 
-console.log(getDifferenceInDays());
-console.log(getDifferenceInHours());
-console.log(getDifferenceInMinutes());
-console.log(getDifferenceInSeconds());
+const counterUpdate = () => {
+	const TODAY_DATE = new Date();
+	const daysLeft = getDifferenceInDays(TODAY_DATE);
+	const hoursLeft = getDifferenceInHours(TODAY_DATE);
+	const minutesLeft = getDifferenceInMinutes(TODAY_DATE);
+	const secondsLeft = getDifferenceInSeconds(TODAY_DATE);
+	const dayDiv = document.getElementById('days');
+	const minutesDiv = document.getElementById('hours');
+	const hoursDiv = document.getElementById('minutes');
+	const secondsDiv = document.getElementById('seconds');
+	dayDiv.innerHTML = daysLeft;
+	hoursDiv.innerHTML = hoursLeft;
+	minutesDiv.innerHTML = minutesLeft;
+	secondsDiv.innerHTML = secondsLeft;
+};
 
 function getDifferenceInDays(
 	todayDate = TODAY_DATE,
 	auctionDate = AUCTION_DATE
 ) {
-	console.log(todayDate, auctionDate);
 	const diffInMs = Math.abs(auctionDate - todayDate);
-	return Math.round(diffInMs / (1000 * 60 * 60 * 24));
+	return Math.round(diffInMs / MILLI_SECONDS_IN_DAY);
 }
 
 function getDifferenceInHours(
@@ -21,7 +34,7 @@ function getDifferenceInHours(
 	auctionDate = AUCTION_DATE
 ) {
 	const diffInMs = Math.abs(auctionDate - todayDate);
-	return Math.round(diffInMs / (1000 * 60 * 60));
+	return Math.round(diffInMs / MILLI_SECONDS_IN_AN_HOUR);
 }
 
 function getDifferenceInMinutes(
@@ -29,7 +42,7 @@ function getDifferenceInMinutes(
 	auctionDate = AUCTION_DATE
 ) {
 	const diffInMs = Math.abs(auctionDate - todayDate);
-	return Math.round(diffInMs / (1000 * 60));
+	return Math.round(diffInMs / MILLI_SECONDS_IN_A_MINUTE);
 }
 
 function getDifferenceInSeconds(
@@ -37,9 +50,9 @@ function getDifferenceInSeconds(
 	auctionDate = AUCTION_DATE
 ) {
 	const diffInMs = Math.abs(auctionDate - todayDate);
-	return Math.round(diffInMs / 1000);
+	console.log('diffInMs', diffInMs);
+	return Math.round(diffInMs / MILLI_SECONDS_IN_A_SECOND);
 }
 
-counterBoxes.forEach((counterBox) => {
-	counterBox.innerHTML = 0;
-});
+counterUpdate();
+setInterval(counterUpdate, INTERVAL);
